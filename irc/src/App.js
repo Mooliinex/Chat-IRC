@@ -82,17 +82,19 @@ function App() {
                   );
                 })}
               </div>
-
+<form>
               <div className="messageInputs">
                 <input
                     type="text"
                     placeholder="Message..."
+                    value={message}
                     onChange={(e) => {
                       setMessage(e.target.value);
                     }}
                 />
                 <button onClick={sendMessage}>Send</button>
               </div>
+</form>
             </div>
         )}
       </div>

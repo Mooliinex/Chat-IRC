@@ -19,6 +19,7 @@ const {
     addNickname,
     changeRoom,
     getUserById,
+
 } = require("./utils/users");
 const { addRoom, getRooms, removeRoom } = require("./utils/rooms");
 const { join } = require("path");
@@ -35,10 +36,8 @@ io.on("connection", (socket) => {
                 //const { user } = getUserByName(username);
                 socket.join(user.room);
             }
-            //console.log(getRooms());
         } catch (e) {}
 
-        // io.to(room).emit("message", `A new user join ${username}`)
     });
 
     socket.on("leftRoom", () => {
@@ -60,6 +59,7 @@ io.on("connection", (socket) => {
         console.log(changeRoom(socket.id, false));
     });
 
+    socket.on("users", )
     socket.on("message", (from, messageContent, room) => {
         if (!room) {
             io.emit("globalMessage", from, messageContent);
